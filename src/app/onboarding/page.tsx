@@ -1,23 +1,21 @@
 import { requireUser, logout } from "@/server/require-user"
+import PageShell from "@/components/page-shell"
+import { PrimaryButton } from "@/components/primary-button"
 
 export default async function OnboardingPage() {
   await requireUser()
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-page-bg text-ink px-6">
-      <div className="max-w-xs text-center space-y-4">
+    <PageShell>
+      <div className="flex flex-col items-center gap-4 text-center">
         <h1 className="text-3xl font-bold tracking-tight">Onboarding</h1>
-        <p className="text-ink opacity-80">
+        <p className="opacity-80 max-w-xs">
           Onboarding comes in the next phase. Your account is ready.
         </p>
-        <form action={logout}>
-          <button
-            className="w-full h-12 rounded-full bg-orange text-white font-semibold text-lg shadow-lg"
-          >
-            Log out
-          </button>
+        <form action={logout} className="w-full">
+          <PrimaryButton>Log out</PrimaryButton>
         </form>
       </div>
-    </div>
-  )
+    </PageShell>
+  );
 }

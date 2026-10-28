@@ -10,7 +10,11 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: "Mohee",
-  description: "Mohee app",
+  description: "A welcoming place for students and creators.",
+  icons: [
+    { rel: "icon", url: "/icon.png" },
+    { rel: "apple-touch-icon", url: "/apple-icon.png", sizes: "180x180" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

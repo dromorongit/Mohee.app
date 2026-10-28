@@ -1,5 +1,7 @@
 import { getOptionalUser } from "@/server/require-user"
 import { redirect } from "next/navigation"
+
+import PageShell from "@/components/page-shell"
 import LoginForm from "./login-form"
 
 export default async function LoginPage() {
@@ -7,5 +9,9 @@ export default async function LoginPage() {
   if (user) {
     redirect("/home")
   }
-  return <LoginForm />
+  return (
+    <PageShell>
+      <LoginForm />
+    </PageShell>
+  );
 }

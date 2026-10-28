@@ -2,6 +2,9 @@ import { getOptionalUser } from "@/server/require-user"
 import { redirect } from "next/navigation"
 import Image from "next/image"
 
+import PageShell from "@/components/page-shell"
+import { PrimaryButton } from "@/components/primary-button"
+
 export default async function Home() {
   const user = await getOptionalUser()
   if (user) {
@@ -9,8 +12,8 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center bg-page-bg text-ink">
-      <header className="w-full max-w-xs px-4 py-8 flex flex-col items-center gap-6">
+    <PageShell>
+      <div className="flex flex-col items-center gap-6 text-center">
         <Image
           src="/brand/moheeapplogo.png"
           alt="Mohee logo"
@@ -21,14 +24,18 @@ export default async function Home() {
         />
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-4xl font-bold tracking-tight">Mohee</h1>
-          <p className="text-lg text-ink opacity-90">Welcome</p>
+          <p className="text-lg opacity-90">Welcome</p>
         </div>
-        <a href="/login">
-          <button className="w-full h-12 rounded-full bg-orange text-white font-semibold text-lg shadow-lg">
-            Log in
-          </button>
+        <p className="text-sm opacity-80 max-w-xs">
+          A friendly place for students and creators to share what they make.
+        </p>
+        <p className="text-xs opacity-50">
+          Mohee means Welcome in Krobo.
+        </p>
+        <a href="/login" className="w-full">
+          <PrimaryButton>Log in</PrimaryButton>
         </a>
-      </header>
-    </div>
+      </div>
+    </PageShell>
   );
 }
