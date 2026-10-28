@@ -4,6 +4,8 @@ import { redirect } from "next/navigation"
 export type UserSession = {
   id: string
   email: string
+  displayName: string | null
+  username: string | null
   isAdmin: boolean
   onboardingCompleted: boolean
 }

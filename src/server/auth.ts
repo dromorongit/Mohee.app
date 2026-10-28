@@ -22,6 +22,8 @@ declare module "@auth/core/adapters" {
     isActive: boolean
     isAdmin: boolean
     onboardingCompleted: boolean
+    displayName: string | null
+    username: string | null
   }
 }
 
@@ -96,6 +98,8 @@ export const authConfig: NextAuthConfig = {
       }
       session.user.id = user.id
       session.user.email = user.email
+      session.user.displayName = user.displayName ?? null
+      session.user.username = user.username ?? null
       session.user.isAdmin = user.isAdmin
       session.user.onboardingCompleted = user.onboardingCompleted
       return session
