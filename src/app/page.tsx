@@ -30,7 +30,7 @@ export default async function Home() {
           A friendly place for students and creators to share what they make.
         </p>
         <p className="text-xs opacity-50">
-          Mohee means Welcome in Krobo.
+          Mohee means Welcome.
         </p>
         <a href="/login" className="w-full">
           <PrimaryButton>Log in</PrimaryButton>
